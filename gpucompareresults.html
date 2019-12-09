@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Compare results</title>
+    <!--<link rel="stylesheet" href="/css/styles.css" type="text/css"> -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    body { background: #fdfdfd !important; }
+      </style>
+  </head>
+  <body>
+    <form class="text-center" action="/gpuCompareResults" method="post">
+    <h1 class="mt-3 mb-3">Gpu Compare</h1>
+    <table style="width:100%">
+      <tr>
+        <td> <ul style="list-style-type:none">
+          <li>Gpu name : {{gpu1_key.gpu_name}}</li>
+          <li>Gpu manafacturer : {{gpu1_key.gpu_manafacturer}}</li>
+          <li>Gpu date : {{gpu1_key.gpu_date_issued}}</li>
+          <li>geometryShader: {{gpu1_key.geometry_shader}}</li>
+          <li>tesselationShader: {{gpu1_key.tesselation_shader}}</li>
+          <li>shaderInt16 : {{gpu1_key.shader_int16}}</li>
+          <li>sparseBinding: {{gpu1_key.sparse_binding}}</li>
+          <li>textureCompressionETC2 : {{gpu1_key.texture_compression_etc2}}</li>
+          <li>vertexPipelineStoresAndAtomics: {{gpu1_key.vertex_pipeline_stores_and_atomics}} </li>
+        </ul> </td>
+        <td> <ul style="list-style-type:none">
+          <li>Gpu name : {{gpu2_key.gpu_name}}</li>
+          <li>Gpu manafacturer : {{gpu2_key.gpu_manafacturer}}</li>
+          <li>Gpu date : {{gpu2_key.gpu_date_issued}}</li>
+          <li>geometryShader: {{gpu2_key.geometry_shader}}</li>
+          <li>tesselationShader: {{gpu2_key.tesselation_shader}}</li>
+          <li>shaderInt16 : {{gpu2_key.shader_int16}}</li>
+          <li>sparseBinding: {{gpu2_key.sparse_binding}}</li>
+          <li>textureCompressionETC2 : {{gpu2_key.texture_compression_etc2}}</li>
+          <li>vertexPipelineStoresAndAtomics: {{gpu2_key.vertex_pipeline_stores_and_atomics}} </li>
+        </ul> </td>
+    </table>
+
+      <input class="mt-1"type="submit" name="button" value="Back">
+    </form>
+
+  </body>
+</html>

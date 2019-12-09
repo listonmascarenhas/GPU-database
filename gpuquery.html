@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Query </title>
+<!--    <link rel="stylesheet" href="/css/styles.css" type="text/css"> -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+body { background: #fdfdfd !important; }
+  </style>
+  </head>
+  <body>
+
+  <form class="ml-3 mt-3 text-center" action="/gpuQuery" method="post">
+    <h1 class="mt-3 mb-3"> Search GPUs by features </h1>
+    {% if geometry_shader == 'True' %}
+    geometryShader  <input class="mb-3 mr-3" type="checkbox" name="geometry_shader" value="True" checked >
+    {% else %}
+    geometryShader  <input class="mb-3 mr-3" type="checkbox" name="geometry_shader" value="True"  >
+    {% endif %}
+
+
+    {% if tesselation_shader == 'True'%}
+    tesselationShader  <input class="mb-3 mr-3" type="checkbox" name="tesselation_shader" value="True" checked>
+    {% else %}
+    tesselationShader  <input class="mb-3 mr-3" type="checkbox" name="tesselation_shader" value="True">
+    {% endif %}
+
+    {% if shader_int16 == 'True' %}
+    shaderInt16  <input class="mb-3 mr-3" type="checkbox" name="shader_int16" value="True" checked>
+    {% else %}
+    shaderInt16  <input class="mb-3 mr-3" type="checkbox" name="shader_int16" value="True">
+    {% endif %}
+
+
+    {% if sparse_binding == 'True' %}
+    sparseBinding  <input class="mb-3 mr-3" type="checkbox" name="sparse_binding" value="True" checked>
+    {% else %}
+    sparseBinding  <input class="mb-3 mr-3" type="checkbox" name="sparse_binding" value="True">
+    {% endif %}
+
+
+    {% if texture_compression_etc2 == 'True' %}
+    textureCompressionETC2  <input class="mb-3 mr-3" type="checkbox" name="texture_compression_etc2" value="True" checked>
+    {% else %}
+    textureCompressionETC2  <input class="mb-3 mr-3" type="checkbox" name="texture_compression_etc2" value="True">
+    {% endif %}
+
+    {% if vertex_pipeline_stores_and_atomics == 'True' %}
+    vertexPipelineStoresAndAtomics   <input class="mb-3 mr-3" type="checkbox" name="vertex_pipeline_stores_and_atomics" value="True" checked>
+    {% else %}
+    vertexPipelineStoresAndAtomics   <input class="mb-3 mr-3" type="checkbox" name="vertex_pipeline_stores_and_atomics" value="True" >
+    {% endif %}
+    <br/>
+
+    <input class="mt-3 mr-1" type="submit" name="button" value="Search">
+    <input type="submit" name="button" value="Back" class="mt-3">
+  </form>
+  <br/>
+
+<p class="ml-3 text-center">
+  Query Results:
+  <br/>
+  {% for gpu in query_gpu %}
+    {{gpu.gpu_name}}
+      <br/>
+      {% endfor %}
+</p>
+  </body>
+</html>

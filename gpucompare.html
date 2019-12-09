@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Gpu Compare</title>
+  <!--  <link rel="stylesheet" href="/css/styles.css" type="text/css"> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  body { background: #fdfdfd !important; }
+    </style>
+  </head>
+  <body >
+  <h1 class="text-center mt-3" >  Choose Gpus to Compare </h1>
+    <br/>
+    <form  action="/gpuCompare" method="post">
+    <div class="container text-center ">
+      <p> Select GPU :
+    <select name='gpu1' class="mb-1">
+    {% for gpu in all_gpu %}
+      <option value="{{gpu.gpu_name}}" name="{{gpu.gpu_name}}">{{gpu.gpu_name}}</option>
+
+    {% endfor %}
+    <br/>
+    </p>
+  </select>
+  <br/>
+  <p> Select GPU :
+  <select name='gpu2' class="mb-1">
+  {% for gpu in all_gpu %}
+    <option value="{{gpu.gpu_name}}" name="{{gpu.gpu_name}}">{{gpu.gpu_name}}</option>
+
+  {% endfor %}
+  <br/>
+
+</select>
+</p>
+    <br/>
+
+    <input type="submit" name="button" value="Compare" class="text-center mb-3 mr-1 ">
+    <input type="submit" name="button" value="Back" class="text-center mb-3  ">
+    </div>
+    </form>
+    {% if gpu_same == 'yes' %}
+    <p class="text-center text-danger">Please choose different Gpus </P>
+    {% endif %}
+  </body>
+</html>

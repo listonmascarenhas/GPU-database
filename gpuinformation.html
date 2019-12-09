@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gpu Information</title>
+  <!--  <link rel="stylesheet" href="/css/styles.css" type="text/css"> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  body { background: #fdfdfd !important; }
+    </style>
+  </head>
+  <body>
+    <form action="/gpuInformation" method="post" class="mt-3 ml-3">
+    <p>  GPU name: {{gpu_key.gpu_name}} </p>
+      <input type="hidden" name="gpu_name" value="{{gpu_key.gpu_name}}">
+    <p>  GPU manafacturer: {{gpu_key.gpu_manafacturer}} </p>
+      <!--GPU date issued : <input type="text" name="gpu_date_issued" value="">
+      <br/> -->
+    <p> GPU date issued: {{gpu_key.gpu_date_issued}} </p>
+    <p> geometryShader: {{gpu_key.geometry_shader}} </p>
+    <p> tesselationShader: {{gpu_key.tesselation_shader}} </p>
+    <p> shaderInt16: {{gpu_key.shader_int16}} </p>
+    <p> sparseBinding: {{gpu_key.sparse_binding}} </p>
+    <p> textureCompressionETC2: {{gpu_key.texture_compression_etc2}} </p>
+    <p>  vertexPipelineStoresAndAtomics: {{gpu_key.vertex_pipeline_stores_and_atomics}} </p>
+      <input class="mr-1" type="submit" name="button" value="Edit"/>
+      <input type="submit" name="button" value="Back">
+    </form>
+  </body>
+</html>

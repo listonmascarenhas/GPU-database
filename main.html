@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Assignment 1 </title>
+  <!--  <link rel="stylesheet" href="/css/styles.css" type="text/css"> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  body { background: #fdfdfd !important; }
+
+  div {
+    height: 200px;
+    width: 400px;
+
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+  </style>
+  </head>
+
+  <body>
+    {% if user %}
+    <table style="width:100%" class="text-center mt-3" >
+    <tr>
+    <td> <a href="/addGpu"> Add Gpu </a> </td>
+    <td> <a href="/gpuQuery">Query</a> </td>
+    <td> <a href="/gpuCompare">Compare </a> </td>
+    <td>  <a href='{{url}}'> Logout </a> </td>
+    </tr>
+  </table>
+    <br/>
+  <h1 class="text-center mt-2 mb-3">  Gpus in the database </h1>
+    <br/>
+    <ul class="text-center" style="list-style-type:none">
+    {% for gpu in all_gpu_names %}
+
+    <li id="mainGpuList">  <a href="/gpuInformation?gpu_name={{gpu.gpu_name}}">{{gpu.gpu_name}}</a> </li>
+      <br/>
+      {% endfor %}
+      {%else%}
+      <div class="text-center">
+      <h2>Welcome to Gpu databases</h2>
+
+      <p>Click here to <a  href='{{url}}'> {{url_string}} </a></p>
+      </div>
+      {% endif %}
+    </ul>
+      <br/>
+
+
+      <br/>
+
+  </body>
+</html>
