@@ -31,6 +31,7 @@ gpucompareresults.py does a feature by feature comparison of 2 distinct GPUs. In
 app.yaml is responsible for informing Google App Engine about the runtimes and libraries needed for the application. Python version 2.7 is used as the runtime. We also state that the application is threadsafe so multiple instances can be allowed on the same server. In libraries we state that we will be using Jinja2 running on its latest version. In handlers, we state that all URLs with /css will be redirected to the static directory css. We also state that all other requests will be redirected to the app variable which is defined in main.py. 
 
 Models and data structures
+
 8.	MyUser:
 myuser.py contains the class MyUser which uses ndb.Model to store the email address of new users. This is possible by importing ndb from google.appengine.ext. email_address is specified as a StringProperty() since an email address is of ASCII format.
 
